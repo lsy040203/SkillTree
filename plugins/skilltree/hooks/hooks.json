@@ -1,0 +1,55 @@
+{
+  "description": "SkillTree observes only approved local Codex hook events. Capture is disabled by default.",
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$PLUGIN_DATA/venv/bin/python $PLUGIN_ROOT/runtime/skilltree_hook.py UserPromptSubmit",
+            "commandWindows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$env:PLUGIN_ROOT\\scripts\\invoke-hook.ps1\" UserPromptSubmit",
+            "timeout": 1
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "^(Bash|exec_command|apply_patch|mcp__.*)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$PLUGIN_DATA/venv/bin/python $PLUGIN_ROOT/runtime/skilltree_hook.py PreToolUse",
+            "commandWindows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$env:PLUGIN_ROOT\\scripts\\invoke-hook.ps1\" PreToolUse",
+            "timeout": 1
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "^(Bash|exec_command|apply_patch|mcp__.*)$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$PLUGIN_DATA/venv/bin/python $PLUGIN_ROOT/runtime/skilltree_hook.py PostToolUse",
+            "commandWindows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$env:PLUGIN_ROOT\\scripts\\invoke-hook.ps1\" PostToolUse",
+            "timeout": 1
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$PLUGIN_DATA/venv/bin/python $PLUGIN_ROOT/runtime/skilltree_hook.py Stop",
+            "commandWindows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"$env:PLUGIN_ROOT\\scripts\\invoke-hook.ps1\" Stop",
+            "timeout": 3
+          }
+        ]
+      }
+    ]
+  }
+}

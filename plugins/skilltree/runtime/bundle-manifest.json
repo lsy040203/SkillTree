@@ -1,0 +1,66 @@
+{
+  "schema_version": "skilltree-bundle/v1",
+  "plugin": {
+    "name": "skilltree",
+    "version": "0.1.0",
+    "manifest_path": ".codex-plugin/plugin.json",
+    "sha256": "sha256:d27d29627a937f02ae41190c09fa836e1fcd6b337bd8a57de303625044e3517f"
+  },
+  "core": {
+    "distribution": "skilltree-core",
+    "version": "0.1.0",
+    "wheel": "runtime/wheels/skilltree_core-0.1.0-py3-none-any.whl",
+    "sha256": "sha256:6d3e3d4a5b6c2498862b1ffc0f973a06834941f8ecfb4add518febb6adc29edb"
+  },
+  "schema": {
+    "version": "skilltree/v1",
+    "migration_version": 1
+  },
+  "migrations": [
+    {
+      "version": 1,
+      "path": "migrations/0001_p0_runtime.sql",
+      "sha256": "sha256:91118602d167e6f6d3e3281d301344b1f76947758b4ce3bd92fa073b99a9defc"
+    }
+  ],
+  "requirements_lock": {
+    "path": "requirements.lock",
+    "sha256": "sha256:792b058c3002daeef10bb4b545f80cd17b6cc7a4ad3e043fe606bd762440093b"
+  },
+  "runtime_files": [
+    {
+      "path": "runtime/skilltree_bootstrap.ps1",
+      "sha256": "sha256:70fcca30e078d1db213e87b31369143469a44345fd6f1a36547099ad4e12d396"
+    },
+    {
+      "path": "runtime/skilltree_hook.py",
+      "sha256": "sha256:3758c9c48757cebaa5e854f5508fe02995306f76976355ad0b0c364765f48246"
+    },
+    {
+      "path": "scripts/setup.ps1",
+      "sha256": "sha256:ec8b0f9534a2d6dcd4735befa5107f945e513792b5379a6d8298fa27e8ff00a0"
+    },
+    {
+      "path": "skills/skill-router/SKILL.md",
+      "sha256": "sha256:c5af0ca3ad5fd5c9f7e1b4198137c685c9a845d9fb83b16ad3c66a540e929f4e"
+    }
+  ],
+  "wheels": [
+    {
+      "filename": "skilltree_core-0.1.0-py3-none-any.whl",
+      "distribution": "skilltree-core",
+      "version": "0.1.0",
+      "sha256": "sha256:6d3e3d4a5b6c2498862b1ffc0f973a06834941f8ecfb4add518febb6adc29edb"
+    }
+  ],
+  "hook_bundle": {
+    "algorithm": "sha256-sorted-path-file-hashes/v1",
+    "files": [
+      "hooks/hooks.json",
+      "runtime/skilltree_bootstrap.ps1",
+      "runtime/skilltree_hook.py"
+    ],
+    "hash": "sha256:e34f178520e6edfffc12793631e530b1d5bfd7507f70be7c33b69c65fd404aad"
+  },
+  "bundle_hash": "sha256:4986fc1141f7931dfe531354eb603fb2b68eaca97e74d064fcbb1f53c390010a"
+}

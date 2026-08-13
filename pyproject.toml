@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools==75.8.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skilltree-core"
+version = "0.1.0"
+description = "Privacy-first local core for the SkillTree Codex plugin."
+requires-python = ">=3.11"
+dependencies = []
+
+[project.scripts]
+skilltree = "skilltree.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
