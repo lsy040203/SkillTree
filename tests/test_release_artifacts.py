@@ -71,7 +71,9 @@ def test_release_workflow_runs_required_checks_and_redacted_artifacts() -> None:
         "tests/test_hook_bridge.py",
     ):
         assert command in workflow
-    assert ".tmp-p7-*.json" in workflow
+    assert "p7-reports/*.json" in workflow
+    assert "p7-reports/*-junit.xml" in workflow
+    assert "if-no-files-found: error" in workflow
     assert ".sqlite" not in workflow
     assert "prompt" not in workflow.lower()
     assert "credential" not in workflow.lower()
