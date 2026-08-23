@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 import shutil
 from pathlib import Path
 
@@ -35,7 +36,7 @@ def test_lock_hash_must_match_local_manifest(tmp_path: Path) -> None:
     plugin = _copy_plugin(tmp_path)
     lock = plugin / "requirements.lock"
     original = lock.read_text(encoding="utf-8")
-    mutated = original.replace("a298bff0e6994caadf9413c956ce8d44e26f341a24fcd8ad0d3af69c68b46813", "0" * 64)
+    mutated = re.sub(r"(?<=--hash=sha256:)[0-9a-f]{64}", "0" * 64, original, count=1)
     assert mutated != original
     lock.write_text(mutated, encoding="utf-8")
     with pytest.raises(SbomValidationError, match="invalid Plugin Bundle"):
