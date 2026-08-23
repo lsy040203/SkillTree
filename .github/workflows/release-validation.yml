@@ -1,0 +1,57 @@
+name: SkillTree release validation
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  release-foundation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install project without optional services
+        shell: bash
+        run: python -m pip install --no-deps -e .
+
+      - name: Validate Plugin Bundle
+        shell: bash
+        run: python tools/validate_plugin.py --plugin-root plugins/skilltree --json-out .tmp-p7-validator.json
+
+      - name: Generate deterministic SBOM
+        shell: bash
+        run: python tools/generate_sbom.py --plugin-root plugins/skilltree --output .tmp-p7-sbom.json
+
+      - name: Check compatibility matrix
+        shell: bash
+        run: python tools/check_compatibility.py --matrix docs/implementation/p7/COMPATIBILITY.md --json-out .tmp-p7-compat.json
+
+      - name: Run Hook fixtures and release tests
+        shell: bash
+        run: python -m pytest -q tests/test_release_validator.py tests/test_release_sbom.py tests/test_release_compatibility.py tests/test_release_artifacts.py tests/test_hook_bridge.py --junitxml=.tmp-p7-junit.xml
+
+      - name: Run regression suite
+        shell: bash
+        run: python -m pytest -q --ignore=tests/test_bundle_contract.py --junitxml=.tmp-p7-regression-junit.xml
+
+      - name: Upload redacted release reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skilltree-release-validation
+          if-no-files-found: error
+          path: |
+            .tmp-p7-*.json
+            .tmp-p7-*-junit.xml
+          retention-days: 14

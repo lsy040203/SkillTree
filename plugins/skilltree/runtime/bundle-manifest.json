@@ -1,0 +1,111 @@
+{
+  "schema_version": "skilltree-bundle/v1",
+  "plugin": {
+    "name": "skilltree",
+    "version": "0.4.1+codex.20260821163152",
+    "manifest_path": ".codex-plugin/plugin.json",
+    "sha256": "sha256:0109c9dbc4500d2916620c05adce11bdf4fac39b3767f807ce3aac045ac80581"
+  },
+  "core": {
+    "distribution": "skilltree-core",
+    "version": "0.4.1",
+    "wheel": "runtime/wheels/skilltree_core-0.4.1-py3-none-any.whl",
+    "sha256": "sha256:a298bff0e6994caadf9413c956ce8d44e26f341a24fcd8ad0d3af69c68b46813"
+  },
+  "schema": {
+    "version": "skilltree/v1",
+    "migration_version": 9
+  },
+  "migrations": [
+    {
+      "version": 1,
+      "path": "migrations/0001_p0_runtime.sql",
+      "sha256": "sha256:91118602d167e6f6d3e3281d301344b1f76947758b4ce3bd92fa073b99a9defc"
+    },
+    {
+      "version": 2,
+      "path": "migrations/0002_p1_registry.sql",
+      "sha256": "sha256:64cad46e96a52ecfed42d2db38cf3acb3e3b13b927d86dcb545eeae141f01230"
+    },
+    {
+      "version": 3,
+      "path": "migrations/0003_p2_routing.sql",
+      "sha256": "sha256:6f89c286ef0af847fff05a82b960e3115dc1114affd459ca6813e880094c7a93"
+    },
+    {
+      "version": 4,
+      "path": "migrations/0004_p3_turn_binding.sql",
+      "sha256": "sha256:05a5ef1410d873d964caba2b51db3c708423f9f41325284299b2acc2d02cf1c0"
+    },
+    {
+      "version": 5,
+      "path": "migrations/0005_p3_trace.sql",
+      "sha256": "sha256:f1f6079970c3b54266943445a958cf2837519bc531884381522c6a841fca34bd"
+    },
+    {
+      "version": 6,
+      "path": "migrations/0006_p4_learning.sql",
+      "sha256": "sha256:23b4685450bb83614e9249f3206106da717df93f30a9b9d50e2856058b3fdfe3"
+    },
+    {
+      "version": 7,
+      "path": "migrations/0007_p5_memory.sql",
+      "sha256": "sha256:057efc874d1867bf1db6b349a8e564bd369a61b9a695137dfeeae30ffe311498"
+    },
+    {
+      "version": 8,
+      "path": "migrations/0008_p6_replay.sql",
+      "sha256": "sha256:ba2363d4f03565574bd1d104fcc8a956544abe7c7b8411a2cbaa264b105bc8be"
+    },
+    {
+      "version": 9,
+      "path": "migrations/0009_p66_extensions.sql",
+      "sha256": "sha256:cf96ef8f3c6b69659965a4fc109a6bcb6d00f98221c03d31ed433e5e253f766a"
+    }
+  ],
+  "requirements_lock": {
+    "path": "requirements.lock",
+    "sha256": "sha256:2683505f723eb96d214e46ddfca8235b407460cc93678553afb87bac7d3f3636"
+  },
+  "runtime_files": [
+    {
+      "path": "runtime/bundle_validate.py",
+      "sha256": "sha256:c1743efea263c3d6dbb06a25531a4085545f1f54f6a28b47a29ef85c6373df9e"
+    },
+    {
+      "path": "runtime/skilltree_bootstrap.ps1",
+      "sha256": "sha256:249e8ed3b1c204d4453347f6936e6c958befb3695d9052d94c0295710197f007"
+    },
+    {
+      "path": "runtime/skilltree_hook.py",
+      "sha256": "sha256:a9943c3ec1dd966b4113fa0217f7a720a8dc459fa9212d839ff119a99002aa73"
+    },
+    {
+      "path": "scripts/setup.ps1",
+      "sha256": "sha256:fb799569a22a9a6318f093613eeb6dcfbc6fa3a9c4e0ed4a21ce6b39fb0295e7"
+    },
+    {
+      "path": "skills/skill-router/SKILL.md",
+      "sha256": "sha256:a7905640561ef1cb71def5536a318c11df56908d6aad59d4f4bfb8d7468533fa"
+    }
+  ],
+  "wheels": [
+    {
+      "filename": "skilltree_core-0.4.1-py3-none-any.whl",
+      "distribution": "skilltree-core",
+      "version": "0.4.1",
+      "sha256": "sha256:a298bff0e6994caadf9413c956ce8d44e26f341a24fcd8ad0d3af69c68b46813"
+    }
+  ],
+  "hook_bundle": {
+    "algorithm": "sha256-sorted-path-file-hashes/v1",
+    "files": [
+      "hooks/hooks.json",
+      "runtime/skilltree_bootstrap.ps1",
+      "runtime/skilltree_hook.py",
+      "scripts/invoke-hook.ps1"
+    ],
+    "hash": "sha256:23d2159337bd8b05ff2f8610f2c85581742a61257df8f28b47d19b155efdd8df"
+  },
+  "bundle_hash": "sha256:7be458d2177e0c42ba2aac88993d3e02dca1c7f8dc1c794630922be1eaea9843"
+}

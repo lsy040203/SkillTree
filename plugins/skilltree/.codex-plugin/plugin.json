@@ -1,0 +1,18 @@
+{
+  "name": "skilltree",
+  "version": "0.4.1+codex.20260821163152",
+  "description": "Privacy-first local Skill routing and learning foundation for Codex.",
+  "author": {
+    "name": "lsy040203"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SkillTree",
+    "shortDescription": "Route user-managed Skills with local consent controls.",
+    "longDescription": "SkillTree provides a privacy-first local foundation for routing user-managed Codex Skills.",
+    "developerName": "lsy040203",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "Use SkillTree to recommend a trusted Skill for this task."
+  }
+}

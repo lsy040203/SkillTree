@@ -1,0 +1,5 @@
+[
+  {"id": "val-1", "candidates": ["analyze", "lsp"], "expected_skill": "analyze"},
+  {"id": "val-2", "candidates": ["code-review", "analyze"], "expected_skill": "code-review"},
+  {"id": "val-3", "candidates": ["lsp", "analyze"], "expected_skill": "lsp"}
+]

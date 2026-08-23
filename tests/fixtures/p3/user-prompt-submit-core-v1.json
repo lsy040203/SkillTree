@@ -1,0 +1,10 @@
+{
+  "fixture_version": "skilltree-user-prompt-core-fixture/v1",
+  "source": "host_neutral",
+  "workspace_id": "sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "session_id": "fixture-session-1",
+  "session_id_hash": "sha256:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+  "turn_id": "fixture-turn-1",
+  "prompt_hash": "sha256:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "route_token": null
+}
