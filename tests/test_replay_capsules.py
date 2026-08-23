@@ -1,8 +1,11 @@
 from __future__ import annotations
 
 import sqlite3
+import sys
 from pathlib import Path
 from uuid import uuid4
+
+import pytest
 
 from skilltree.bundle import build_bundle
 from skilltree.core.replay_capsules import _contains_rejected, create_replay_capsule, delete_replay_capsule, read_replay_capsule, sweep_replay_capsules
@@ -28,6 +31,7 @@ def test_replay_sweep_is_noop_before_p6_schema(tmp_path: Path) -> None:
     assert sweep_replay_capsules(database, data_dir=tmp_path) == {}
 
 
+@pytest.mark.skipif(sys.platform != "win32", reason="Replay capsule protection requires Windows DPAPI")
 def test_ready_capsule_round_trip_and_delete_clears_metadata(tmp_path: Path) -> None:
     build_bundle(ROOT)
     database = Database(tmp_path / "skilltree.sqlite3")
