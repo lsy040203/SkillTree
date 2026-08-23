@@ -25,6 +25,10 @@ jobs:
         shell: bash
         run: python -m pip install --no-deps -e .
 
+      - name: Install test runner
+        shell: bash
+        run: python -m pip install pytest
+
       - name: Prepare report directory
         shell: bash
         run: mkdir -p p7-reports
