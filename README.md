@@ -27,5 +27,25 @@ require explicit approval before authoritative storage. See `PRIVACY.md`,
 pytest -q
 ```
 
+## Install from GitHub
+
+The repository currently provides a validated pre-release branch rather than a
+numbered GitHub Release. To install it in Codex, add the repository as a
+marketplace and install the plugin:
+
+```powershell
+codex plugin marketplace add lsy040203/SkillTree --ref codex/release-foundation
+codex plugin add skilltree@skilltree
+```
+
+To use a local checkout instead:
+
+```powershell
+codex plugin marketplace add "D:\path\to\SkillTree"
+codex plugin add skilltree@skilltree
+```
+
+Restart Codex after installation, then verify with `codex plugin list`.
+
 The Apache-2.0 license applies to this repository. No signed release or
 automatic GitHub Release publication is claimed by this development checkout.
