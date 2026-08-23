@@ -34,7 +34,10 @@ def test_sbom_is_cyclonedx_1_5_and_deterministic(tmp_path: Path) -> None:
 def test_lock_hash_must_match_local_manifest(tmp_path: Path) -> None:
     plugin = _copy_plugin(tmp_path)
     lock = plugin / "requirements.lock"
-    lock.write_text(lock.read_text(encoding="utf-8").replace("a298bff0", "b298bff0"), encoding="utf-8")
+    original = lock.read_text(encoding="utf-8")
+    mutated = original.replace("a298bff0e6994caadf9413c956ce8d44e26f341a24fcd8ad0d3af69c68b46813", "0" * 64)
+    assert mutated != original
+    lock.write_text(mutated, encoding="utf-8")
     with pytest.raises(SbomValidationError, match="invalid Plugin Bundle"):
         generate_sbom(plugin)
 
