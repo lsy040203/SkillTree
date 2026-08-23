@@ -47,5 +47,17 @@ codex plugin add skilltree@skilltree
 
 Restart Codex after installation, then verify with `codex plugin list`.
 
+On the first Codex turn after installation, initialize the local runtime by
+sending this exact request (replace the Python path with an installed Python
+3.11+ executable):
+
+```text
+$skilltree-bootstrap install --python "C:\\Users\\Lenovo\\AppData\\Local\\Programs\\Python\\Python311\\python.exe"
+```
+
+After the bootstrap reports success, run `skilltree doctor --json` in the same
+environment. Runtime data stays in the local Plugin data directory; prompts,
+credentials, and SQLite files are not uploaded to GitHub.
+
 The Apache-2.0 license applies to this repository. No signed release or
 automatic GitHub Release publication is claimed by this development checkout.
