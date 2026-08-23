@@ -1,0 +1,3 @@
+plugins/skilltree/** text eol=lf
+plugins/skilltree/**/*.whl binary
+.github/workflows/** text eol=lf

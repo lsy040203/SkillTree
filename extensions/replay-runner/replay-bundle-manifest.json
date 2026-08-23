@@ -1,0 +1,32 @@
+{
+  "schema_version": "skilltree-replay-bundle/v2",
+  "extension_id": "org.skilltree.reference",
+  "extension_version": "2.0.0",
+  "adapter": {
+    "name": "python-repository",
+    "task_types": ["org.skilltree.python.repository_verification"],
+    "task_schemas": {"org.skilltree.python.repository_verification": "schemas/repository-verification.json"}
+  },
+  "capabilities": {
+    "network": false,
+    "host_workspace": false,
+    "credentials": false,
+    "max_input_bytes": 16777216,
+    "max_artifact_bytes": 16777216,
+    "timeout_seconds": 300
+  },
+  "requires": {
+    "plugin_version_range": ">=0.4.1,<0.5.0",
+    "core_version_range": "==0.4.1",
+    "schema_version": "skilltree/v1"
+  },
+  "image": {
+    "name": "skilltree-replay-runner:2.0.0",
+    "digest": "sha256:ef4830fc39f5f5750bea63eee173dbde77d8c648193db7c3727677940920f5e3"
+  },
+  "oci_archive": {
+    "path": "skilltree-replay-runner-2.0.0.oci.tar",
+    "sha256": "sha256:9d504519e389766c474a418d1f115bc315e705944bf60fa55ca8ea5898f41d28"
+  },
+  "bundle_hash": "sha256:b780bcc617b9f22713bfbbb4366b1b36f6210aeb1357da4382c252ccd1afb5c4"
+}

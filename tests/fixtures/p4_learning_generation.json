@@ -1,0 +1,5 @@
+[
+  {"id": "gen-1", "candidates": ["analyze", "lsp"], "expected_skill": "analyze", "updates": [{"skill": "analyze", "delta": 2, "quality": "strict"}]},
+  {"id": "gen-2", "candidates": ["code-review", "analyze"], "expected_skill": "code-review", "updates": [{"skill": "code-review", "delta": 1, "quality": "relaxed"}]},
+  {"id": "gen-3", "candidates": ["lsp", "analyze"], "expected_skill": "lsp", "updates": [{"skill": "lsp", "delta": 1, "quality": "strict"}, {"skill": "hidden", "delta": 3, "quality": "strict"}]}
+]
