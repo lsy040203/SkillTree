@@ -23,7 +23,9 @@ jobs:
 
       - name: Install project without optional services
         shell: bash
-        run: python -m pip install --no-deps -e .
+        run: |
+          python -m pip install --no-deps -e .
+          python -m pip install pytest==8.4.1
 
       - name: Prepare report directory
         shell: bash
