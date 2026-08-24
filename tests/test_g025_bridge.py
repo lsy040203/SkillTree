@@ -11,8 +11,6 @@ from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from unittest.mock import patch
 
-import pytest
-
 from skilltree.hook_bridge import (
     build_probe,
     handle_hook_event,
@@ -426,7 +424,6 @@ def test_runtime_subprocess_missing_runtime_is_fail_open(tmp_path: Path) -> None
     assert result.stdout == b""
 
 
-@pytest.mark.skipif(sys.platform != "win32", reason="PowerShell hook fixture requires Windows")
 def test_windows_invoke_hook_forwards_stdin_to_runtime_handler(tmp_path: Path) -> None:
     plugin_root = tmp_path / "plugin"
     plugin_data = tmp_path / "data"
@@ -437,10 +434,7 @@ def test_windows_invoke_hook_forwards_stdin_to_runtime_handler(tmp_path: Path) -
     scripts.mkdir(parents=True)
     python_path.parent.mkdir(parents=True)
     shutil.copy2(sys.executable, python_path)
-    (plugin_data / "venv" / "pyvenv.cfg").write_text(
-        "home = " + str(Path(sys.executable).parent) + "\n",
-        encoding="utf-8",
-    )
+    shutil.copy2(ROOT / ".venv" / "pyvenv.cfg", plugin_data / "venv" / "pyvenv.cfg")
     (runtime / "skilltree_hook.py").write_text(
         "import sys\nsys.stdout.write(sys.stdin.read())\n",
         encoding="utf-8",

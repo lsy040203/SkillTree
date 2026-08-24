@@ -25,10 +25,6 @@ jobs:
         shell: bash
         run: python -m pip install --no-deps -e .
 
-      - name: Install test runner
-        shell: bash
-        run: python -m pip install pytest
-
       - name: Prepare report directory
         shell: bash
         run: mkdir -p p7-reports
@@ -47,7 +43,7 @@ jobs:
 
       - name: Run Hook fixtures and release tests
         shell: bash
-        run: python -m pytest -q tests/test_release_validator.py tests/test_release_sbom.py tests/test_release_compatibility.py tests/test_release_artifacts.py tests/test_hook_bridge.py --junitxml=p7-reports/release-junit.xml
+        run: python -m pytest -q tests/test_release_validator.py tests/test_release_sbom.py tests/test_release_compatibility.py tests/test_release_artifacts.py tests/test_release_signing.py tests/test_hook_bridge.py --junitxml=p7-reports/release-junit.xml
 
       - name: Run regression suite
         shell: bash
