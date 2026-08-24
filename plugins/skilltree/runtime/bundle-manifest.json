@@ -4,7 +4,7 @@
     "name": "skilltree",
     "version": "0.4.1+codex.20260821163152",
     "manifest_path": ".codex-plugin/plugin.json",
-    "sha256": "sha256:0109c9dbc4500d2916620c05adce11bdf4fac39b3767f807ce3aac045ac80581"
+    "sha256": "sha256:48c0eedea4318b7abca4c014661ca94bf7778213995b9b1a1d87ebfe8d7a2575"
   },
   "core": {
     "distribution": "skilltree-core",
@@ -107,5 +107,5 @@
     ],
     "hash": "sha256:23d2159337bd8b05ff2f8610f2c85581742a61257df8f28b47d19b155efdd8df"
   },
-  "bundle_hash": "sha256:7be458d2177e0c42ba2aac88993d3e02dca1c7f8dc1c794630922be1eaea9843"
+  "bundle_hash": "sha256:df8198d7dc4ba575ac48a176bdf2e188bd26193cd4565dca32a132dc089583d7"
 }
