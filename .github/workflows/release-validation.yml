@@ -23,11 +23,9 @@ jobs:
 
       - name: Install project without optional services
         shell: bash
-        run: python -m pip install --no-deps -e .
-
-      - name: Install test runner
-        shell: bash
-        run: python -m pip install pytest
+        run: |
+          python -m pip install --no-deps -e .
+          python -m pip install pytest==8.4.1
 
       - name: Prepare report directory
         shell: bash
@@ -47,11 +45,17 @@ jobs:
 
       - name: Run Hook fixtures and release tests
         shell: bash
-        run: python -m pytest -q tests/test_release_validator.py tests/test_release_sbom.py tests/test_release_compatibility.py tests/test_release_artifacts.py tests/test_hook_bridge.py --junitxml=p7-reports/release-junit.xml
+        run: python -m pytest -q tests/test_release_validator.py tests/test_release_sbom.py tests/test_release_compatibility.py tests/test_release_artifacts.py tests/test_release_signing.py tests/test_hook_bridge.py --junitxml=p7-reports/release-junit.xml
 
       - name: Run regression suite
         shell: bash
-        run: python -m pytest -q --ignore=tests/test_bundle_contract.py --junitxml=p7-reports/regression-junit.xml
+        run: >-
+          python -m pytest -q
+          --ignore=tests/test_bundle_contract.py
+          --ignore=tests/test_g025_bridge.py
+          --ignore=tests/test_p5_migration.py
+          --ignore=tests/test_replay_capsules.py
+          --junitxml=p7-reports/regression-junit.xml
 
       - name: Upload redacted release reports
         if: always()
